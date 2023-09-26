@@ -1,4 +1,4 @@
-package com.ken.app.controller.inject;
+package com.ken.app.component.scan.common;
 
 public interface Coach {
 

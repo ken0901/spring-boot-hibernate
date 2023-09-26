@@ -1,4 +1,4 @@
-package com.ken.app.controller.inject;
+package com.ken.app.component.scan.common;
 
 import org.springframework.stereotype.Component;
 
