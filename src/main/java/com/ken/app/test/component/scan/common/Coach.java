@@ -1,4 +1,4 @@
-package com.ken.app.component.scan.common;
+package com.ken.app.test.component.scan.common;
 
 public interface Coach {
 

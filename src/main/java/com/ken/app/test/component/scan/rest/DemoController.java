@@ -1,6 +1,6 @@
-package com.ken.app.component.scan.rest;
+package com.ken.app.test.component.scan.rest;
 
-import com.ken.app.component.scan.common.Coach;
+import com.ken.app.test.component.scan.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
