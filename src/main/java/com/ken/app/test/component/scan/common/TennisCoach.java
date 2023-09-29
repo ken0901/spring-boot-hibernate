@@ -2,7 +2,7 @@ package com.ken.app.test.component.scan.common;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class TennisCoach implements Coach{
 
     public TennisCoach(){

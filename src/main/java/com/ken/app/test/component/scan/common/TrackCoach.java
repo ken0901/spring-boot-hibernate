@@ -3,7 +3,7 @@ package com.ken.app.test.component.scan.common;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class TrackCoach implements Coach{
 
     public TrackCoach(){
