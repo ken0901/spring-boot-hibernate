@@ -38,7 +38,7 @@ public class AppApplication {
 
 			//deleteStudent(studentDAO);
 
-			deleteAllStudents(studentDAO);
+			//deleteAllStudents(studentDAO);
 		};
 	}
 
