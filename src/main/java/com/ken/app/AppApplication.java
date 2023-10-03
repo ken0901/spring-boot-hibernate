@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 // If package is outside of main method then define location using scanBasePackages to scan package.
 //@SpringBootApplication(
@@ -26,8 +28,32 @@ public class AppApplication {
 
 			//createMultipleStudents(studentDAO);
 
-			readStudent(studentDAO);
+			//readStudent(studentDAO);
+
+			//queryForStudents(studentDAO);
+
+			queryForStudentByLastName(studentDAO);
 		};
+	}
+
+	private void queryForStudentByLastName(StudentDAO studentDAO) {
+		// Get a list of students
+		List<Student> theStudents = studentDAO.findByLastName("Lee");
+
+		// Display list of students
+		for(Student tempStudent: theStudents){
+			System.out.println(tempStudent);
+		}
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		// Get a list of students
+		List<Student> theStudents = studentDAO.findAll();
+
+		// Display list of students
+		for(Student tempStudent: theStudents){
+			System.out.println(tempStudent);
+		}
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
