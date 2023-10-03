@@ -32,8 +32,27 @@ public class AppApplication {
 
 			//queryForStudents(studentDAO);
 
-			queryForStudentByLastName(studentDAO);
+			//queryForStudentByLastName(studentDAO);
+
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// Retrieve student based on the id: primary key
+		int studentId = 5;
+		System.out.println("Getting student with id:" + studentId);
+		Student myStudent = studentDAO.findById(studentId);
+
+		// Change first name to "Scooby"
+		System.out.println("Updating student ...");
+		myStudent.setFirstName("Scooby");
+
+		// Update the student
+		studentDAO.update(myStudent);
+
+		// Display the updated student
+		System.out.println("Updated student: " + myStudent);
 	}
 
 	private void queryForStudentByLastName(StudentDAO studentDAO) {
