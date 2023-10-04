@@ -21,9 +21,9 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
-		return runner -> {
+//	@Bean
+//	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
+//		return runner -> {
 			//createStudent(studentDAO);
 
 			//createMultipleStudents(studentDAO);
@@ -39,8 +39,8 @@ public class AppApplication {
 			//deleteStudent(studentDAO);
 
 			//deleteAllStudents(studentDAO);
-		};
-	}
+		/*};
+	}*/
 
 	private void deleteAllStudents(StudentDAO studentDAO) {
 		System.out.println("Deleting all students");
