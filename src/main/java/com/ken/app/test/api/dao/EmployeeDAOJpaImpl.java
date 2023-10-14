@@ -1,3 +1,4 @@
+/*
 package com.ken.app.test.api.dao;
 
 import com.ken.app.test.api.entity.Employee;
@@ -64,3 +65,4 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO{
         entityManager.remove(theEmployee);
     }
 }
+*/
