@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmls:th="http://www.thymelead.org">
+<html lang="en" xmlns:th="http://www.thymelead.org">
     <head>
         <meta charset="UTF-8">
         <title>Student Registration Form</title>
@@ -11,7 +11,18 @@
             <br><br>
             Last name: <input type="text" th:field="*{lastName}"/>
             <br><br>
+            Country:
+
+            <select th:field="*{country}">
+                <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
+               <!-- <option th:value="Brazil">Brazil</option>
+                <option th:value="France">France</option>
+                <option th:value="Korea">Korea</option>
+                <option th:value="India">India</option>-->
+            </select>
+            <br><br>
             <input type="submit" value="Submit"/>
+
         </form>
     </body>
 </html>
