@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymelead.org">
+<html lang="en" xmlns:th="http://www.thymelead.org" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <title>Student Registration Form</title>
@@ -20,6 +20,12 @@
                 <option th:value="Korea">Korea</option>
                 <option th:value="India">India</option>-->
             </select>
+            <br><br>
+            Favorite Programming Language:
+            <input type="radio" th:field="*{favoriteLanguage}" th:each="tempLanguage : ${favoriteLanguages}" th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+            <!--<input type="radio" th:field="*{favoriteLanguage}" th:value="Go">Go</input>
+            <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>
+            <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>-->
             <br><br>
             <input type="submit" value="Submit"/>
 
