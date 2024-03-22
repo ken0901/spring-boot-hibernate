@@ -1,5 +1,6 @@
 package com.ken.app.test.mvc.validation.model;
 
+import com.ken.app.test.mvc.validation.custom.CourseCode;
 import jakarta.validation.constraints.*;
 
 public class Customer {
@@ -17,6 +18,9 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
     private String postalCode;
+
+    @CourseCode(value = "KATIE", message = "must start with KATIE")
+    private String courseCode;
 
     public String getFirstName() {
         return firstName;
@@ -48,5 +52,13 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
