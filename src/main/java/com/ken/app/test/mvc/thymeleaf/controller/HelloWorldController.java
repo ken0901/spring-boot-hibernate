@@ -44,7 +44,7 @@ public class HelloWorldController {
         // add message to the model
         model.addAttribute("message", result);
 
-        return "helloworld";
+        return "helloworld/helloworld";
     }
 
     //@RequestMapping("/processFormVersionThree")
@@ -61,6 +61,6 @@ public class HelloWorldController {
         // add message to the model
         model.addAttribute("message", result);
 
-        return "helloworld";
+        return "helloworld/helloworld";
     }
 }

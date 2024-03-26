@@ -28,7 +28,7 @@ public class CustomerController {
     public String showForm(Model theModel){
         theModel.addAttribute("customer", new Customer());
 
-        return "customer-form";
+        return "customers/customer-form";
     }
 
     @PostMapping("/processForm")
@@ -37,7 +37,7 @@ public class CustomerController {
         if(theBindingResult.hasErrors()){
             return "customer-form";
         }else{
-            return "customer-confirmation";
+            return "customers/customer-confirmation";
         }
     }
 }
