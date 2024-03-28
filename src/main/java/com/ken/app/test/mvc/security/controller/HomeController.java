@@ -10,4 +10,16 @@ public class HomeController {
     public String showHome(){
         return "securityTemplate/home";
     }
+
+    // add a request mappping for /leaders
+    @GetMapping("/leaders")
+    public String showLeaders(){
+        return "securityTemplate/leaders";
+    }
+
+    // add a request mappping for /leaders
+    @GetMapping("/systems")
+    public String showSystems(){
+        return "securityTemplate/systems";
+    }
 }
