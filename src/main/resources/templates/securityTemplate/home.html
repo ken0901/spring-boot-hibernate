@@ -7,6 +7,11 @@
     <body>
         <h2>Ken Company Home Page</h2>
         <hr>
-        Welcome to the Ken's company home page!
+        <p>Welcome to the Ken's company home page!</p>
+
+        <!-- Add a logout button-->
+        <form action="#" th:action="@{/logout}" method="POST">
+            <input type="submit" value="Logout"/>
+        </form>
     </body>
 </html>
