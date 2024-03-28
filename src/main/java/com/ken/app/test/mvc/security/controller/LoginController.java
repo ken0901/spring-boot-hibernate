@@ -9,6 +9,6 @@ public class LoginController {
     @GetMapping("/showLoginPage")
     public String showLoginPage(){
 
-        return "securityTemplate/plain-login";
+        return "securityTemplate/fancy-login";
     }
 }
