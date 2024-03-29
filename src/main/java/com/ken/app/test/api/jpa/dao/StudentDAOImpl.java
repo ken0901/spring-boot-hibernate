@@ -1,6 +1,6 @@
-//package com.ken.app.test.hibernate.jpa.dao;
+//package com.ken.app.test.api.jpa.dao;
 //
-//import com.ken.app.test.hibernate.jpa.entity.Student;
+//import com.ken.app.test.api.jpa.entity.Student;
 //import jakarta.persistence.EntityManager;
 //import jakarta.persistence.TypedQuery;
 //import org.springframework.beans.factory.annotation.Autowired;

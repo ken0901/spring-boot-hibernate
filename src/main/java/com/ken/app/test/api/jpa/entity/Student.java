@@ -1,4 +1,4 @@
-package com.ken.app.test.hibernate.jpa.entity;
+package com.ken.app.test.api.jpa.entity;
 
 //import jakarta.persistence.*;
 

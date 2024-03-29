@@ -1,11 +1,9 @@
 package com.ken.app;
 
-import com.ken.app.test.hibernate.jpa.dao.StudentDAO;
-import com.ken.app.test.hibernate.jpa.entity.Student;
-import org.springframework.boot.CommandLineRunner;
+import com.ken.app.test.api.jpa.dao.StudentDAO;
+import com.ken.app.test.api.jpa.entity.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
