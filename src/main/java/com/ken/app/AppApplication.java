@@ -2,8 +2,10 @@ package com.ken.app;
 
 import com.ken.app.test.api.jpa.dao.StudentDAO;
 import com.ken.app.test.api.jpa.entity.Student;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -17,6 +19,13 @@ public class AppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner commandLineRunner(){
+		return runner -> {
+			System.out.println("Hello World");
+		};
 	}
 
 //	@Bean
