@@ -16,18 +16,22 @@
             <br><br>
             Role(s): <span sec:authentication="principal.authorities"></span>
         </p>
+        <div sec:authorize="hasRole('MANAGER')">
+            <hr>
+            <!-- Add a link to point to /leaders ... this is for the managers -->
+            <p>
+                <a th:href="@{/leaders}">Leadership Meeting</a>
+                (Only for Manager peeps)
+            </p>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')">
+            <!-- Add a link to point to /system ... this is for the admins -->
+            <p>
+                <a th:href="@{/systems}">IT System Meeting</a>
+                (Only for Admin peeps)
+            </p>
+        </div>
         <hr>
-        <!-- Add a link to point to /leaders ... this is for the managers -->
-        <p>
-            <a th:href="@{/leaders}">Leadership Meeting</a>
-            (Only for Manager peeps)
-        </p>
-        <!-- Add a link to point to /system ... this is for the admins -->
-        <p>
-            <a th:href="@{/systems}">IT System Meeting</a>
-            (Only for Admin peeps)
-        </p>
-
         <!-- Add a logout button-->
         <form action="#" th:action="@{/logout}" method="POST">
             <input type="submit" value="Logout"/>
