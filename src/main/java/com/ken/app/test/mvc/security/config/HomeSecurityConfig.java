@@ -7,31 +7,18 @@ import org.springframework.security.config.annotation.web.configurers.LogoutConf
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class HomeSecurityConfig {
+    // add support for JDBC ... no more hard-coded users
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager(){
-        UserDetails john = User.builder()
-                .username("john")
-                .password("{noop}john123")
-                .roles("EMPLOYEE")
-                .build();
-
-        UserDetails katie = User.builder()
-                .username("katie")
-                .password("{noop}katie123")
-                .roles("EMPLOYEE","MANAGER")
-                .build();
-
-        UserDetails ken = User.builder()
-                .username("ken")
-                .password("{noop}ken123")
-                .roles("EMPLOYEE","MANAGER","ADMIN")
-                .build();
-
-        return new InMemoryUserDetailsManager(john,katie,ken);
+    public UserDetailsManager userDetailsManager(DataSource dataSource){
+        return new JdbcUserDetailsManager(dataSource);
     }
 
     @Bean
@@ -56,4 +43,27 @@ public class HomeSecurityConfig {
                 );
         return http.build();
     }
+    // hard-coded for user name and password
+    /*@Bean
+    public InMemoryUserDetailsManager userDetailsManager(){
+        UserDetails john = User.builder()
+                .username("john")
+                .password("{noop}john123")
+                .roles("EMPLOYEE")
+                .build();
+
+        UserDetails katie = User.builder()
+                .username("katie")
+                .password("{noop}katie123")
+                .roles("EMPLOYEE","MANAGER")
+                .build();
+
+        UserDetails ken = User.builder()
+                .username("ken")
+                .password("{noop}ken123")
+                .roles("EMPLOYEE","MANAGER","ADMIN")
+                .build();
+
+        return new InMemoryUserDetailsManager(john,katie,ken);
+    }*/
 }

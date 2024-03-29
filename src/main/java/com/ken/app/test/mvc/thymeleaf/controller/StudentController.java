@@ -13,13 +13,13 @@ import java.util.List;
 @Controller
 public class StudentController {
 
-    @Value("${countries}")
+    //@Value("${countries}")
     private List<String> countries;
 
-    @Value("${favoriteLanguage}")
+    //@Value("${favoriteLanguage}")
     private List<String> favoriteLanguages;
 
-    @Value("${favoriteSystem}")
+    //@Value("${favoriteSystem}")
     private List<String> favoriteSystems;
 
     @GetMapping("/showStudentForm")
