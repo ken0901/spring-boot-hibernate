@@ -50,6 +50,9 @@ public class HomeSecurityConfig {
                             .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll
+                )
+                .exceptionHandling(configure ->
+                        configure.accessDeniedPage("/access-denied")
                 );
         return http.build();
     }

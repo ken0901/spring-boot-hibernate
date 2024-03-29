@@ -11,4 +11,10 @@ public class LoginController {
 
         return "securityTemplate/fancy-login";
     }
+
+    // add request mapping for /access-denied
+    @GetMapping("access-denied")
+    public String showAccessDenied(){
+        return "securityTemplate/access-denied";
+    }
 }
