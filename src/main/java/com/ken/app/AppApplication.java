@@ -2,6 +2,9 @@ package com.ken.app;
 
 import com.ken.app.test.api.jpa.dao.StudentDAO;
 import com.ken.app.test.api.jpa.entity.Student;
+import com.ken.app.test.hibernate.jpa.dao.AppDAO;
+import com.ken.app.test.hibernate.jpa.entity.Instructor;
+import com.ken.app.test.hibernate.jpa.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,10 +25,38 @@ public class AppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(){
+	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 		return runner -> {
-			System.out.println("Hello World");
+			createInstructor(appDAO);
 		};
+	}
+
+	private void createInstructor(AppDAO appDAO) {
+
+		/*// create the instructor
+		Instructor tempInstructor = new Instructor("Ken","Lee","ken@gmail.com");
+
+		// create the instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube/kenlee","Coding");*/
+
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Katie","Lee","katie@gmail.com");
+
+		// create the instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube/katielee","Cooking");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// save the instructor
+		//
+		// NOTE: this will ALSO save the details object
+		// because of CascadeType.ALL
+		//
+		System.out.println("Saving instructor: " + tempInstructor);
+		appDAO.save(tempInstructor);
+
+		System.out.println("Done!");
 	}
 
 //	@Bean
