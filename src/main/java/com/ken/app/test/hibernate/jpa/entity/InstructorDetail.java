@@ -20,6 +20,10 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
+    // add @OneToOne annotation
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
+
     // create constructors
     public InstructorDetail() {
     }
@@ -52,6 +56,14 @@ public class InstructorDetail {
 
     public void setHobby(String hobby) {
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     // generate toString() method

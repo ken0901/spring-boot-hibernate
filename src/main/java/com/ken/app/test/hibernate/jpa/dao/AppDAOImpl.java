@@ -1,6 +1,7 @@
 package com.ken.app.test.hibernate.jpa.dao;
 
 import com.ken.app.test.hibernate.jpa.entity.Instructor;
+import com.ken.app.test.hibernate.jpa.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -37,5 +38,20 @@ public class AppDAOImpl implements AppDAO{
 
         // delete the instructor
         entityManager.remove(tempInstructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int theId) {
+        return entityManager.find(InstructorDetail.class, theId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteInstructorDetailById(int theId) {
+        // retrieve the instructor Detail
+        InstructorDetail tempInstructorDetail = entityManager.find(InstructorDetail.class, theId);
+
+        // delete the instructor Detail
+        entityManager.remove(tempInstructorDetail);
     }
 }
