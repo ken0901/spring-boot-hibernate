@@ -21,6 +21,9 @@ public class InstructorDetail {
     private String hobby;
 
     // create constructors
+    public InstructorDetail() {
+    }
+
     public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;
         this.hobby = hobby;
