@@ -3,6 +3,7 @@ package com.ken.app;
 import com.ken.app.test.api.jpa.dao.StudentDAO;
 import com.ken.app.test.api.jpa.entity.Student;
 import com.ken.app.test.hibernate.jpa.dao.AppDAO;
+import com.ken.app.test.hibernate.jpa.entity.Course;
 import com.ken.app.test.hibernate.jpa.entity.Instructor;
 import com.ken.app.test.hibernate.jpa.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -35,8 +36,38 @@ public class AppApplication {
 
 			// findInstructorDetail(appDAO);
 
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Ken","Lee","ken@gmail.com");
+
+		// create the instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube/kenlee","Coding");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some courses
+		Course tempCourse1 = new Course("Java Beginner");
+		Course tempCourse2 = new Course("Angular Beginner");
+
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+
+		// save the instructor
+		// NOTE: this will ALSO save the courses
+		// because of CascadeType.PERSIST
+		//
+		System.out.println("Saving instructor: " + tempInstructor);
+		System.out.println("The courses: " + tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+
+		System.out.println("Done !");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
