@@ -1,7 +1,10 @@
 package com.ken.app.test.hibernate.jpa.dao;
 
+import com.ken.app.test.hibernate.jpa.entity.Course;
 import com.ken.app.test.hibernate.jpa.entity.Instructor;
 import com.ken.app.test.hibernate.jpa.entity.InstructorDetail;
+
+import java.util.List;
 
 public interface AppDAO {
     void save(Instructor instructor);
@@ -13,4 +16,6 @@ public interface AppDAO {
     InstructorDetail findInstructorDetailById(int theId);
 
     void deleteInstructorDetailById(int theId);
+
+    List<Course> findCoursesByInstructorId(int theId);
 }
