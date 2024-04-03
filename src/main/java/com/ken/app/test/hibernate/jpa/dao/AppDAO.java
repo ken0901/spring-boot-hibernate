@@ -26,4 +26,6 @@ public interface AppDAO {
     void update(Course temCourse);
 
     Course findCourseById(int theId);
+
+    void deleteCourseById(int theId);
 }
