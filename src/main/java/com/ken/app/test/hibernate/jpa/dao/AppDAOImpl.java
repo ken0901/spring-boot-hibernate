@@ -3,6 +3,7 @@ package com.ken.app.test.hibernate.jpa.dao;
 import com.ken.app.test.hibernate.jpa.entity.Course;
 import com.ken.app.test.hibernate.jpa.entity.Instructor;
 import com.ken.app.test.hibernate.jpa.entity.InstructorDetail;
+import com.ken.app.test.hibernate.jpa.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -150,5 +151,35 @@ public class AppDAOImpl implements AppDAO{
 
         // execute query
         return query.getSingleResult();
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int theId) {
+        // create query
+        TypedQuery<Student> query = entityManager.createQuery(
+                "select s from Student s "
+                        + "JOIN FETCH s.courses "
+                        + "where s.id = :data ", Student.class);
+
+        query.setParameter("data",theId);
+
+        // execute query
+        return query.getSingleResult();
+    }
+
+    @Override
+    @Transactional
+    public void update(Student tempStudent) {
+        entityManager.merge(tempStudent);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudentById(int theId) {
+        // retrieve the student
+        Student tempStudent = entityManager.find(Student.class, theId);
+
+        // delete the student
+        entityManager.remove(tempStudent);
     }
 }
