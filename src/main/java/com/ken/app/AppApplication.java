@@ -29,8 +29,40 @@ public class AppApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 		return runner -> {
+			//createCourseAndStudent(appDAO);
 
+			findCourseAndStudents(appDAO);
 		};
+	}
+
+	private void findCourseAndStudents(AppDAO appDAO) {
+		int theId = 13;
+		Course tempCourse = appDAO.findCourseAndStudentsByCourseId(theId);
+
+		System.out.println("Loaded course: " + tempCourse);
+		System.out.println("Students: " + tempCourse.getStudents());
+
+		System.out.println("Done!");
+	}
+
+	private void createCourseAndStudent(AppDAO appDAO) {
+		// create a course
+		Course tempCourse = new Course("Fall out 4");
+
+		// create the students
+		com.ken.app.test.hibernate.jpa.entity.Student tempStudent1 = new com.ken.app.test.hibernate.jpa.entity.Student("Ken", "Lee", "ken@gmail.com");
+		com.ken.app.test.hibernate.jpa.entity.Student tempStudent2 = new com.ken.app.test.hibernate.jpa.entity.Student("Katie", "Lee", "katie@gmail.com");
+
+		// add students to the course
+		tempCourse.addStudent(tempStudent1);
+		tempCourse.addStudent(tempStudent2);
+
+		// save the course and associated students
+		System.out.println("Saving the course: " + tempCourse);
+		System.out.println("associated students: " + tempCourse.getStudents());
+		appDAO.save(tempCourse);
+
+		System.out.println("Done !");
 	}
 
 	private void deleteCourseAndReviews(AppDAO appDAO) {
