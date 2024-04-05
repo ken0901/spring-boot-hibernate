@@ -1,6 +1,7 @@
 package com.ken.app;
 
 import com.ken.app.test.aop.dao.AccountDAO;
+import com.ken.app.test.aop.dao.MembershipDAO;
 import com.ken.app.test.api.jpa.dao.StudentDAO;
 import com.ken.app.test.api.jpa.entity.Student;
 import com.ken.app.test.hibernate.jpa.dao.AppDAO;
@@ -28,16 +29,19 @@ public class AppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO){
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO){
 		return runner -> {
 
-			demoTheBeforeAdvice(theAccountDAO);
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 		};
 	}
 
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 		// call the business method
 		theAccountDAO.addAccount();
+
+		// call the membership business method
+		theMembershipDAO.addAccount();
 	}
 
 
