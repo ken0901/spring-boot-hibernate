@@ -41,7 +41,7 @@ public class AppApplication {
 		theAccountDAO.addAccount();
 
 		// call the membership business method
-		theMembershipDAO.addAccount();
+		theMembershipDAO.addMember();
 	}
 
 
