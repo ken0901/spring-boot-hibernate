@@ -1,3 +1,4 @@
+/*
 package com.ken.app.test.mvc.security.config;
 
 import org.springframework.context.annotation.Bean;
@@ -56,7 +57,8 @@ public class HomeSecurityConfig {
         return http.build();
     }
     // hard-coded for user name and password
-    /*@Bean
+    */
+/*@Bean
     public InMemoryUserDetailsManager userDetailsManager(){
         UserDetails john = User.builder()
                 .username("john")
@@ -77,5 +79,7 @@ public class HomeSecurityConfig {
                 .build();
 
         return new InMemoryUserDetailsManager(john,katie,ken);
-    }*/
+    }*//*
+
 }
+*/

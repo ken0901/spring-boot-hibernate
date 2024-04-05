@@ -27,17 +27,9 @@ public class AppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AppDAO appDAO){
+	public CommandLineRunner commandLineRunner(String[] args){
 		return runner -> {
-			//createCourseAndStudent(appDAO);
-
-			// findCourseAndStudents(appDAO);
-
-			// findStudentAndCourses(appDAO);
-
-			// addMoreCoursesForStudent(appDAO);
-
-			deleteV1Student(appDAO);
+			System.out.println("Hello world !");
 		};
 	}
 

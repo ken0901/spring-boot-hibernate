@@ -1,27 +1,27 @@
 package com.ken.app.test.hibernate.jpa.entity;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 
-@Entity
-@Table(name = "instructor_detail")
+//@Entity
+//@Table(name = "instructor_detail")
 public class InstructorDetail {
 
     // annotate the class as an entity and map to db table
     // define the fields
     // annotate the fields with db column names
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name = "id")
     private int id;
 
-    @Column(name = "youtube_channel")
+    //@Column(name = "youtube_channel")
     private String youtubeChannel;
 
-    @Column(name = "hobby")
+    //@Column(name = "hobby")
     private String hobby;
 
     // add @OneToOne annotation
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    //@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
     private Instructor instructor;
 
     // create constructors

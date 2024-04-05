@@ -1,3 +1,4 @@
+/*
 package com.ken.app.test.hibernate.jpa.dao;
 
 import com.ken.app.test.hibernate.jpa.entity.Course;
@@ -183,3 +184,4 @@ public class AppDAOImpl implements AppDAO{
         entityManager.remove(tempStudent);
     }
 }
+*/
