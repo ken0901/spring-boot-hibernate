@@ -1,5 +1,6 @@
 package com.ken.app;
 
+import com.ken.app.test.aop.Account;
 import com.ken.app.test.aop.dao.AccountDAO;
 import com.ken.app.test.aop.dao.MembershipDAO;
 import com.ken.app.test.api.jpa.dao.StudentDAO;
@@ -38,7 +39,8 @@ public class AppApplication {
 
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 		// call the business method
-		theAccountDAO.addAccount();
+		Account myAccount = new Account();
+		theAccountDAO.addAccount(myAccount);
 
 		// call the membership business method
 		theMembershipDAO.addMember();

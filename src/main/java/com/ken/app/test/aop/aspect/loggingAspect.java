@@ -11,7 +11,7 @@ public class loggingAspect {
 
     // let's start with an @Before advice
 
-    @Before("execution(* add*())")
+    @Before("execution(* add*(com.ken.app.test.aop.Account))")
     public void beforeAddAccountAdvice(){
         System.out.println("\n=====>>> Executing @Before advice on method");
     }
