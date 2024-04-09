@@ -40,6 +40,8 @@ public class AppApplication {
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 		// call the business method
 		Account myAccount = new Account();
+		myAccount.setName("Medhu");
+		myAccount.setLevel("Platinum");
 		theAccountDAO.addAccount(myAccount);
 
 		// call the account dao getter/setter methods
