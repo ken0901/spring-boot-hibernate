@@ -2,10 +2,8 @@ package com.ken.app.test.aop.aspect;
 
 import com.ken.app.test.aop.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -83,10 +81,38 @@ public class LoggingAspect {
     public void afterThrowingFindAccountsAdvice(JoinPoint theJoinPoint, Throwable theExc){
         // print out which method we are advising on
         String method = theJoinPoint.getSignature().toShortString();
-        System.out.println("\n========>>> Executing @AfterReturning on method: " + method);
+        System.out.println("\n========>>> Executing @AfterThrowing on method: " + method);
 
         // log the exception
         System.out.println("\n========>>> result is: " + theExc);
 
+    }
+
+    @After("execution(* com.ken.app.test.aop.dao.AccountDAO.findAccounts(..))")
+    public void afterFinallyFindAccountsAdvice(JoinPoint theJoinPoint){
+        // print out which method we are advising on
+        String method = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n========>>> Executing @After (finally) on method: " + method);
+    }
+
+    @Around("execution(* com.ken.app.test.aop.service.*.getFortune(..))")
+    public Object aroundGetfortune(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
+        // print out method we are advising on
+        String method = theProceedingJoinPoint.getSignature().toShortString();
+        System.out.println("\n========>>> Executing @Around on method: " + method);
+
+        // get begin timestamp
+        long begin = System.currentTimeMillis();
+
+        // now, let's execute the method
+        Object result = theProceedingJoinPoint.proceed();
+
+        // get end timestamp
+        long end = System.currentTimeMillis();
+
+        // compute duration and display it
+        long duration = end - begin;
+        System.out.println("\n======> Duration: " + duration / 1000.0 + " seconds");
+        return result;
     }
 }

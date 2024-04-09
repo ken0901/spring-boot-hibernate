@@ -3,6 +3,7 @@ package com.ken.app;
 import com.ken.app.test.aop.Account;
 import com.ken.app.test.aop.dao.AccountDAO;
 import com.ken.app.test.aop.dao.MembershipDAO;
+import com.ken.app.test.aop.service.TrafficFortuneService;
 import com.ken.app.test.api.jpa.dao.StudentDAO;
 import com.ken.app.test.api.jpa.entity.Student;
 import com.ken.app.test.hibernate.jpa.dao.AppDAO;
@@ -30,15 +31,52 @@ public class AppApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO){
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO,
+											   MembershipDAO theMembershipDAO,
+											   TrafficFortuneService theTrafficFortuneService){
 		return runner -> {
 
 			//demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			
 			//demoTheAfterReturningAdvice(theAccountDAO);
 
-			demoTheAfterThrowingAdvice(theAccountDAO);
+			//demoTheAfterThrowingAdvice(theAccountDAO);
+
+			//demoTheAfterAdvice(theAccountDAO);
+
+			demoTheArroundAdvice(theTrafficFortuneService);
 		};
+	}
+
+	private void demoTheArroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program:  demoTheArroundAdvice");
+		System.out.println("Calling getFortune()");
+
+		String data = theTrafficFortuneService.getFortune();
+		System.out.println("\nMy fourtune is: " +data);
+		System.out.println("Finished");
+	}
+
+	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
+		// call method to find the accounts
+		List<Account> theAccounts = null;
+
+		try {
+			// add a boolean flag to simulate exceptions
+			boolean tripWire = true;
+
+
+			theAccounts = theAccountDAO.findAccounts(tripWire);
+		}catch (Exception ex){
+			System.out.println("\n\nMain Program: ... caught exception: " + ex);
+		}
+
+		// display the accounts
+		System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
+		System.out.println("----");
+
+		System.out.println(theAccounts);
+		System.out.println("\n");
 	}
 
 	private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
