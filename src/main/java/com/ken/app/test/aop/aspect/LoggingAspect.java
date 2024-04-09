@@ -3,6 +3,7 @@ package com.ken.app.test.aop.aspect;
 import com.ken.app.test.aop.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -72,6 +73,20 @@ public class LoggingAspect {
             // update the name on the account
             tmpAccount.setName(theUpperName);
         }
+
+    }
+
+    @AfterThrowing(
+            pointcut = "execution(* com.ken.app.test.aop.dao.AccountDAO.findAccounts(..))",
+            throwing = "theExc"
+    )
+    public void afterThrowingFindAccountsAdvice(JoinPoint theJoinPoint, Throwable theExc){
+        // print out which method we are advising on
+        String method = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n========>>> Executing @AfterReturning on method: " + method);
+
+        // log the exception
+        System.out.println("\n========>>> result is: " + theExc);
 
     }
 }

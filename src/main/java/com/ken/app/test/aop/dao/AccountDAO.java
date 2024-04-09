@@ -9,6 +9,7 @@ public interface AccountDAO {
     void addAccount(Account theAccount);
 
     List<Account> findAccounts();
+    List<Account> findAccounts(boolean tripWire);
 
     String getName();
 
