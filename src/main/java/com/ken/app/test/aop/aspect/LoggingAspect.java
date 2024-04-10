@@ -112,8 +112,8 @@ public class LoggingAspect {
             // log the exception
             System.out.println(ex.getMessage());
 
-            // give user a custom message
-            result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+            // rethrow exception
+            throw ex;
         }
 
         // get end timestamp
