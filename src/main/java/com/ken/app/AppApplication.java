@@ -44,16 +44,28 @@ public class AppApplication {
 
 			//demoTheAfterAdvice(theAccountDAO);
 
-			demoTheArroundAdvice(theTrafficFortuneService);
+			//demoTheAroundAdvice(theTrafficFortuneService);
+
+			demoTheAroundAdviceHandelException(theTrafficFortuneService);
 		};
 	}
 
-	private void demoTheArroundAdvice(TrafficFortuneService theTrafficFortuneService) {
-		System.out.println("\nMain Program:  demoTheArroundAdvice");
+	private void demoTheAroundAdviceHandelException(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program:  demoTheAroundAdviceHandelException");
+		System.out.println("Calling getFortune()");
+
+		boolean tripWire = true;
+		String data = theTrafficFortuneService.getFortune(tripWire);
+		System.out.println("\nMy fortune is: " +data);
+		System.out.println("Finished");
+	}
+
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program:  demoTheAroundAdvice");
 		System.out.println("Calling getFortune()");
 
 		String data = theTrafficFortuneService.getFortune();
-		System.out.println("\nMy fourtune is: " +data);
+		System.out.println("\nMy fortune is: " +data);
 		System.out.println("Finished");
 	}
 
