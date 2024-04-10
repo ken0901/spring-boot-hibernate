@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Locale;
 
-@Aspect
-@Component
-@Order(2)
+//@Aspect
+//@Component
+//@Order(2)
 public class LoggingAspect {
 
     @Before("com.ken.app.test.aop.aspect.AopExpressions.forDaoPackageNoGetterSetter()")

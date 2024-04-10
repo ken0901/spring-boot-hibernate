@@ -30,7 +30,7 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 	}
 
-	@Bean
+	//@Bean
 	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO,
 											   MembershipDAO theMembershipDAO,
 											   TrafficFortuneService theTrafficFortuneService){
@@ -48,7 +48,7 @@ public class AppApplication {
 
 			//demoTheAroundAdviceHandelException(theTrafficFortuneService);
 
-			demoTheAroundAdviceRethrowException(theTrafficFortuneService);
+			//demoTheAroundAdviceRethrowException(theTrafficFortuneService);
 		};
 	}
 
